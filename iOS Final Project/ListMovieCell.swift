@@ -11,9 +11,12 @@ import UIKit
 
 class ListMovieCell: UITableViewCell {
     
-  @IBOutlet weak var movieName: UILabel!
-  @IBOutlet weak var movieInfo: UILabel!
-  @IBOutlet weak var moviePoster: UIImageView!
+    @IBOutlet weak var movieName: UILabel!
+    @IBOutlet weak var moviePoster: UIImageView!
+    @IBOutlet weak var movieRating: UILabel!
+    @IBOutlet weak var movieYear: UILabel!
+    @IBOutlet weak var movieDescription: UILabel!
+    
   
   var downloadTask: NSURLSessionDownloadTask?
 
@@ -33,18 +36,21 @@ class ListMovieCell: UITableViewCell {
 
   func configureForMovieResult(movie: Movie) {
     movieName.text = movie.title
-    movieInfo.text = movie.rating
-
-    if (movie.rating == "") {
-      movieInfo.text = NSLocalizedString("No Ratings Yet", comment: "No Ratings Yet")
-    }
     
-    
-
     moviePoster.image = UIImage(named: "Placeholder")
     let data = NSData(contentsOfURL: movie.imgURL!)
     self.moviePoster.image = UIImage(data: data!)
-  }
+
+    if (movie.rating == nil) {
+      movieRating.text = NSLocalizedString("No Ratings Yet", comment: "No Ratings Yet")
+    } else {
+        movieRating.text = "Rating: \(movie.rating!)"
+    }
+    
+    movieYear.text = "Released: \(movie.year!)"
+    movieDescription.text = movie.plot
+    
+}
     
   override func prepareForReuse() {
     super.prepareForReuse()
@@ -53,7 +59,9 @@ class ListMovieCell: UITableViewCell {
     downloadTask = nil
     
     movieName.text = nil
-    movieInfo.text = nil
     moviePoster.image = nil
+    movieRating.text = nil
+    movieYear.text = nil
+    movieDescription.text = nil
   }
 }

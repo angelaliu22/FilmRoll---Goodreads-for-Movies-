@@ -2,53 +2,66 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14D130a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ListMovieCell" id="ess-Xa-ryB" userLabel="ListMovieCell" customClass="ListMovieCell" customModule="iOS_Final_Project" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ListMovieCell" rowHeight="123" id="ess-Xa-ryB" userLabel="ListMovieCell" customClass="ListMovieCell" customModule="iOS_Final_Project" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="123"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ess-Xa-ryB" id="iJ7-bx-djX">
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="movieperson_placeholder-103642" translatesAutoresizingMaskIntoConstraints="NO" id="n59-8Z-sjS">
-                        <rect key="frame" x="15" y="10" width="60" height="60"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="movieperson_placeholder-103642" translatesAutoresizingMaskIntoConstraints="NO" id="n59-8Z-sjS">
+                        <rect key="frame" x="8" y="9" width="74" height="102"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="60" id="SLv-kJ-lBy"/>
-                            <constraint firstAttribute="height" constant="60" id="SyJ-JM-eGg"/>
+                            <constraint firstAttribute="width" secondItem="n59-8Z-sjS" secondAttribute="height" multiplier="37:51" id="fIu-7l-byY"/>
+                            <constraint firstAttribute="height" constant="102" id="wF9-2M-Luv"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xlh-To-Rkm">
-                        <rect key="frame" x="90" y="15" width="222" height="22"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Movie Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xlh-To-Rkm">
+                        <rect key="frame" x="90" y="9" width="222" height="22"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Movie Info" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6qQ-ZC-ScT">
-                        <rect key="frame" x="90" y="45" width="222" height="25"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Year" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yh5-pn-bdM">
+                        <rect key="frame" x="90" y="39" width="137" height="22"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Rating" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tpr-GC-SqI">
+                        <rect key="frame" x="230" y="39" width="82" height="22"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OGC-v8-XSY">
+                        <rect key="frame" x="90" y="60" width="222" height="51"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                        <size key="shadowOffset" width="0.0" height="0.0"/>
                     </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="xlh-To-Rkm" firstAttribute="leading" secondItem="n59-8Z-sjS" secondAttribute="trailing" constant="15" id="5Kb-8l-jKZ"/>
+                    <constraint firstItem="n59-8Z-sjS" firstAttribute="top" secondItem="iJ7-bx-djX" secondAttribute="topMargin" constant="1" id="7cA-Q0-A3i"/>
                     <constraint firstItem="n59-8Z-sjS" firstAttribute="top" secondItem="iJ7-bx-djX" secondAttribute="top" constant="10" id="8BW-VA-0md"/>
-                    <constraint firstAttribute="trailing" secondItem="xlh-To-Rkm" secondAttribute="trailing" constant="8" id="AMJ-l2-Lpb"/>
-                    <constraint firstAttribute="trailing" secondItem="6qQ-ZC-ScT" secondAttribute="trailing" constant="8" id="DNT-yP-oSc"/>
-                    <constraint firstItem="xlh-To-Rkm" firstAttribute="top" secondItem="iJ7-bx-djX" secondAttribute="top" constant="15" id="GWv-qv-xce"/>
                     <constraint firstItem="n59-8Z-sjS" firstAttribute="leading" secondItem="iJ7-bx-djX" secondAttribute="leading" constant="15" id="SmV-u9-bEx"/>
-                    <constraint firstItem="6qQ-ZC-ScT" firstAttribute="leading" secondItem="n59-8Z-sjS" secondAttribute="trailing" constant="15" id="aD8-Bm-T2b"/>
-                    <constraint firstAttribute="bottom" secondItem="6qQ-ZC-ScT" secondAttribute="bottom" constant="17" id="wht-pc-q9k"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="movieInfo" destination="6qQ-ZC-ScT" id="L5A-Qn-ez9"/>
+                <outlet property="movieDescription" destination="OGC-v8-XSY" id="r3I-6S-V9F"/>
                 <outlet property="movieName" destination="xlh-To-Rkm" id="ycR-bJ-8YE"/>
                 <outlet property="moviePoster" destination="n59-8Z-sjS" id="JJu-AA-fRP"/>
+                <outlet property="movieRating" destination="Tpr-GC-SqI" id="X3N-nD-074"/>
+                <outlet property="movieYear" destination="Yh5-pn-bdM" id="fN0-RW-vNR"/>
             </connections>
-            <point key="canvasLocation" x="386" y="115"/>
+            <point key="canvasLocation" x="204" y="125.5"/>
         </tableViewCell>
     </objects>
     <resources>

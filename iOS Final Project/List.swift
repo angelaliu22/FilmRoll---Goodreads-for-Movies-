@@ -19,12 +19,14 @@ class List: NSObject, NSCoding {
     }
     
     required init(coder aDecoder: NSCoder) {
-        
-        self.movies = (aDecoder.decodeObjectForKey(listName) as? [Movie])!
+        self.listName = (aDecoder.decodeObjectForKey("listName") as? String)!
+        self.movies = (aDecoder.decodeObjectForKey("movies") as? [Movie])!
         super.init()
     }
     
     func encodeWithCoder(aCoder: NSCoder) {
-        aCoder.encodeObject(movies, forKey: listName)
+        aCoder.encodeObject(listName, forKey: "listName")
+        //TO DO WHY DOES THIS CRASH
+//        aCoder.encodeObject(movies, forKey: "movies")
     }
 }

@@ -34,8 +34,14 @@ class IMDbAPI {
             movie.title = "Movie not found"
         } else {
             movie.title = jsonDict["Title"] as? String
+            movie.rating = jsonDict["imdbRating"] as? String
+            movie.year = jsonDict["Year"] as? String
+            movie.plot = jsonDict["Plot"] as? String
             let poster = jsonDict["Poster"] as? String
             movie.imgURL = NSURL(string: poster!)
+            movie.director = jsonDict["Director"] as? String
+            movie.actors = jsonDict["Actors"] as? String
+            
         }
     }
 }

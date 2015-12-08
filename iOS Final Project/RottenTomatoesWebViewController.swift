@@ -14,14 +14,17 @@ class RottenTomatoesWebViewController: UIViewController, WKNavigationDelegate, U
     var webView: WKWebView!
     var movieSearched:String = ""
     
-    func rottenTomatoesWebViewController(controller: SearchViewController, movieSearched movie: String) {
-        movieSearched = movie
+    var searchedMovieTitle: String? {
+        didSet {
+            // Update the view.
+            //            self.configureView()
+        }
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let url = NSURL(string: "http://www.rottentomatoes.com/m/up/\(movieSearched)")
+        let url = NSURL(string: "http://www.rottentomatoes.com/m/\(searchedMovieTitle!)/")
         println(url)
         webView.loadRequest(NSURLRequest(URL: url!))
         webView.allowsBackForwardNavigationGestures = true

@@ -32,7 +32,7 @@ class ListDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        tableView.rowHeight = 80
+        tableView.rowHeight = 140
         
         var cellNib = UINib(nibName: TableViewCellIdentifiers.listMovieCell, bundle: nil)
         tableView.registerNib(cellNib, forCellReuseIdentifier: TableViewCellIdentifiers.listMovieCell)

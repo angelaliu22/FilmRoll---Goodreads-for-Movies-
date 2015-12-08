@@ -45,16 +45,4 @@ class ListsManager {
             }
         }
     }
-    
-    func addNewMovieToList(listname: String, movie: Movie) {
-        println("List name to add to is: " + listname)
-        println("movie name is: " + movie.title!)
-        
-        for list in lists {
-            if (list.listName == listname) {
-                list.movies?.append(movie)
-                println("movie added!")
-            }
-        }
-    }
 }
