@@ -87,7 +87,7 @@ class ListDetailViewController: UIViewController {
 extension ListDetailViewController: UITableViewDataSource {
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let movieList = list!.movies {
+        if let curList = list {
             println("MOVIE COUNT = " + String(list!.movies!.count))
             return list!.movies!.count
         } else {

@@ -15,7 +15,7 @@ class ListsManager {
     init() {
         loadLists()
         println("Documents folder is \(documentsDirectory())\n")
-        println("Data file path is \(dataFilePath())")
+//        println("Data file path is \(dataFilePath())")
     }
     
     func documentsDirectory() -> String {

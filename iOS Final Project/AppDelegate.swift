@@ -16,6 +16,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     let listsManager = ListsManager()
     
+    func customizeAppearance() {
+        let navigationController = window!.rootViewController as! UINavigationController
+//        let barTintColor = UIColor(red: 20/255, green: 160/255, blue: 160/255, alpha: 1)
+        navigationController.navigationBar.barTintColor = UIColor.orangeColor()
+        navigationController.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        
+        window!.tintColor = UIColor.whiteColor()
+    }
+    
     func saveData() {
         let navigationController = window!.rootViewController as! UINavigationController
         let controller = navigationController.viewControllers[0] as! ListsTableController
@@ -40,6 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        customizeAppearance()
         // Override point for customization after application launch.
         return true
     }

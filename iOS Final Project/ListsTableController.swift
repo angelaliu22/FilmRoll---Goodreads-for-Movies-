@@ -65,12 +65,12 @@ class ListsTableController: UITableViewController, AddListControllerDelegate {
         }
         else if segue.identifier == "showListDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow() {
-                for list in lists {
-                    if list.listName == "test" {
-                        println("DID WE FIND ONE??")
-                        (segue.destinationViewController as! ListDetailViewController).list = list
-                    }
-                }
+//                for list in lists {
+//                    if list.listName == lists[indexPath.row] {
+//                        println("DID WE FIND ONE??")
+                        (segue.destinationViewController as! ListDetailViewController).list = lists[indexPath.row]
+//                    }
+//                }
             }
         } else if segue.identifier == "searchForMovie" {
             (segue.destinationViewController as! SearchViewController).lists = lists

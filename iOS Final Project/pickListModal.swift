@@ -63,13 +63,15 @@ class pickListModal: UITableViewController {
                 (segue.destinationViewController as! SearchViewController).pickedList = self.pickedList
                 println("PICKED LIST IS: \(pickedList)")
                 
-                for list in self.lists {
-                    if (list.listName == pickedList) {
-                        list.movies?.append(self.newMovie)
-                        println("movie added!")
-                    }
+            }
+            for list in self.lists {
+                if (list.listName == pickedList) {
+                    list.movies?.append(self.newMovie)
+                    println("movie added! \(newMovie.title)")
+                    println("WHAT THE LIST MOVIE COUNT SHOULD BE: \(list.movies!.count)")
                 }
             }
+            (segue.destinationViewController as! SearchViewController).lists = self.lists
             dismissViewControllerAnimated(true, completion: nil)
         }
     }

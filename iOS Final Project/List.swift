@@ -20,13 +20,13 @@ class List: NSObject, NSCoding {
     
     required init(coder aDecoder: NSCoder) {
         self.listName = (aDecoder.decodeObjectForKey("listName") as? String)!
-        self.movies = (aDecoder.decodeObjectForKey("movies") as? [Movie])!
+        self.movies = (aDecoder.decodeObjectForKey("movies") as? [Movie])
         super.init()
     }
     
     func encodeWithCoder(aCoder: NSCoder) {
         aCoder.encodeObject(listName, forKey: "listName")
         //TO DO WHY DOES THIS CRASH
-//        aCoder.encodeObject(movies, forKey: "movies")
+        aCoder.encodeObject(movies, forKey: "movies")
     }
 }
