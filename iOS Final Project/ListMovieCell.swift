@@ -36,7 +36,7 @@ class ListMovieCell: UITableViewCell {
     movieInfo.text = movie.rating
 
     if (movie.rating == "") {
-      movieInfo.text = NSLocalizedString("None", comment: "No Ratings Yet")
+      movieInfo.text = NSLocalizedString("No Ratings Yet", comment: "No Ratings Yet")
     }
     
     

@@ -8,35 +8,21 @@
 
 import UIKit
 
-protocol MovieSearchedDelegate: class {
-    func rottenTomatoesWebViewController(controller: SearchViewController, movieSearched movie: String)
-}
-
 class SearchViewController: UIViewController {
     
-    weak var delegate: MovieSearchedDelegate?
     var listmanager = ListsManager()
     var lists = [List]()
+    var newMovie = Movie()
     
     
     @IBOutlet weak var movieQuery: UITextField!
-    
     @IBOutlet weak var movieTitleLabel: UILabel!
-    
     @IBOutlet weak var moviePoster: UIImageView!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //TO DO create a list
-        var curList: List = List()
-        curList.listName = "test"
-        curList.movies = []
-        
-        
-        lists.append(curList)
-        movieTitleLabel.text = ""
+        movieTitleLabel.text = "";
     }
     
     override func didReceiveMemoryWarning() {
@@ -45,33 +31,31 @@ class SearchViewController: UIViewController {
     
     @IBAction func searchMovie(sender: UIButton) {
         
-        var newMovie = Movie()
         var title = self.movieQuery.text
         IMDbAPI.populateMovieResult(title, movie: newMovie)
         
         dispatch_async(dispatch_get_main_queue(),
             {
                 sleep(1)
-                println("movie title : \(newMovie.title)")
-                self.movieTitleLabel.text = newMovie.title
-                let data = NSData(contentsOfURL: newMovie.imgURL!)
+                println("movie title : \(self.newMovie.title)")
+                self.movieTitleLabel.text = self.newMovie.title
+                let data = NSData(contentsOfURL: self.newMovie.imgURL!)
                 self.moviePoster.image = UIImage(data: data!)
-                
         })
-        
-        delegate?.rottenTomatoesWebViewController(self, movieSearched: movieQuery.text)
-        
     }
 
     @IBAction func addMovieToList() {
         println("list count is: " + String(lists.count))
-        var newMovie = Movie();
-//        newMovie.title = movieQuery.text;
-//        //TO DO ACTUALLY GET THIS DATA FROM QUERY
-//        newMovie.rating = "5"
-//        newMovie.imgURL = "http://www.freedesign4.me/wp-content/gallery/posters/free-movie-film-poster-the_dark_knight_movie_poster.jpg"
         
         var listname = "test";
-        listmanager.addNewMovieToList(listname, movie: newMovie)
+//        listmanager.addNewMovieToList(listname, movie: self.newMovie)
+        
+        for list in self.lists {
+            if (list.listName == listname) {
+                list.movies?.append(self.newMovie)
+                println("movie added!")
+            }
+        }
+        
     }
 }

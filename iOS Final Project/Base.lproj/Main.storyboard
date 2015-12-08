@@ -153,7 +153,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QAk-hQ-qFi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5064" y="-478"/>
+            <point key="canvasLocation" x="5142" y="-478"/>
         </scene>
         <!--Lists Table Controller-->
         <scene sceneID="S78-nT-g1h">
@@ -194,7 +194,7 @@
                     <navigationItem key="navigationItem" id="Cqb-n4-nbK">
                         <barButtonItem key="leftBarButtonItem" systemItem="search" id="CUH-jr-ci3">
                             <connections>
-                                <segue destination="BYZ-38-t0r" kind="push" id="o7c-mV-raY"/>
+                                <segue destination="BYZ-38-t0r" kind="push" identifier="searchForMovie" id="o7c-mV-raY"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="edA-XD-lYX">

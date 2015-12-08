@@ -13,7 +13,15 @@ class ListDetailViewController: UIViewController {
     
     @IBOutlet var tableView: UITableView!
     
-    var list = List()
+    var list: List? {
+        didSet {
+            // Update the view.
+//            self.configureView()
+        }
+    }
+    
+    
+
 
     struct TableViewCellIdentifiers {
         static let listMovieCell = "ListMovieCell"
@@ -35,7 +43,6 @@ class ListDetailViewController: UIViewController {
         cellNib = UINib(nibName: TableViewCellIdentifiers.loadingCell, bundle: nil)
         tableView.registerNib(cellNib, forCellReuseIdentifier: TableViewCellIdentifiers.loadingCell)
         
-//        title = NSLocalizedString("Search", comment: "Split-view master button")
     }
     
     override func didReceiveMemoryWarning() {
@@ -51,10 +58,6 @@ class ListDetailViewController: UIViewController {
         })
     }
     
-//    @IBAction func segmentChanged(sender: UISegmentedControl) {
-//        performSearch()
-//    }
-    
     func showNetworkError() {
         let alert = UIAlertController(
             title: NSLocalizedString("Whoops...", comment: "Error alert: title"),
@@ -66,21 +69,7 @@ class ListDetailViewController: UIViewController {
         
         presentViewController(alert, animated: true, completion: nil)
     }
-//    
-//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        if segue.identifier == "ShowDetail" {
-//            switch search.state {
-//            case .Results(let list):
-//                let detailViewController = segue.destinationViewController as! DetailViewController
-//                let indexPath = sender as! NSIndexPath
-//                let searchResult = list[indexPath.row]
-//                detailViewController.searchResult = searchResult
-//                detailViewController.isPopUp = true
-//            default:
-//                break
-//            }
-//        }
-//    }
+
     
     override func willTransitionToTraitCollection(newCollection: UITraitCollection, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
         super.willTransitionToTraitCollection(newCollection, withTransitionCoordinator: coordinator)
@@ -93,140 +82,34 @@ class ListDetailViewController: UIViewController {
                 }
         }
 //        else if UIDevice.currentDevice().userInterfaceIdiom != .Pad {
-//            switch newCollection.verticalSizeClass {
-//            case .Compact:
-//                showLandscapeViewWithCoordinator(coordinator)
-//            case .Regular, .Unspecified:
-//                hideLandscapeViewWithCoordinator(coordinator)
-//            }
-//        }
     }
     
-//    func showLandscapeViewWithCoordinator(coordinator: UIViewControllerTransitionCoordinator) {
-//        precondition(landscapeViewController == nil)
-//        
-//        landscapeViewController = storyboard!.instantiateViewControllerWithIdentifier("LandscapeViewController") as? LandscapeViewController
-//        if let controller = landscapeViewController {
-//            controller.search = search
-//            
-//            controller.view.frame = view.bounds
-//            controller.view.alpha = 0
-//            
-//            view.addSubview(controller.view)
-//            addChildViewController(controller)
-//            
-//            coordinator.animateAlongsideTransition({ _ in
-//                controller.view.alpha = 1
-//                self.searchBar.resignFirstResponder()
-//                
-//                if self.presentedViewController != nil {
-//                    self.dismissViewControllerAnimated(true, completion: nil)
-//                }
-//                },
-//                completion: { _ in
-//                    controller.didMoveToParentViewController(self)
-//            })
-//        }
-//    }
+//    func showLandscapeViewWithCoordinator(coordinator: UIViewControllerTransitionCoordinator)
     
-//    func hideLandscapeViewWithCoordinator(coordinator: UIViewControllerTransitionCoordinator) {
-//        if let controller = landscapeViewController {
-//            controller.willMoveToParentViewController(nil)
-//            
-//            coordinator.animateAlongsideTransition({ _ in
-//                controller.view.alpha = 0
-//                
-//                if self.presentedViewController != nil {
-//                    self.dismissViewControllerAnimated(true, completion: nil)
-//                }
-//                }, completion: { _ in
-//                    controller.view.removeFromSuperview()
-//                    controller.removeFromParentViewController()
-//                    self.landscapeViewController = nil
-//            })
-//        }
-//    }
+//    func hideLandscapeViewWithCoordinator(coordinator: UIViewControllerTransitionCoordinator)
+
 }
 
-//extension ListDetailViewController: UISearchBarDelegate {
-//    func performSearch() {
-//        if let category = Search.Category(rawValue: segmentedControl.selectedSegmentIndex) {
-//            search.performSearchForText(searchBar.text, category: category, completion: {
-//                success in
-//                
-//                if let controller = self.landscapeViewController {
-//                    controller.searchResultsReceived()
-//                }
-//                
-//                if !success {
-//                    self.showNetworkError()
-//                }
-//                
-//                self.tableView.reloadData()
-//            })
-//            
-//            tableView.reloadData()
-//            searchBar.resignFirstResponder()
-//        }
-//    }
-//    
-//    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
-//        performSearch()
-//    }
-//    
-//    func positionForBar(bar: UIBarPositioning) -> UIBarPosition {
-//        return .TopAttached
-//    }
-//}
+//extension ListDetailViewController: UISearchBarDelegate
 
 extension ListDetailViewController: UITableViewDataSource {
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        println("MOVIE COUNT = " + String(list.movies.count))
-        return list.movies.count
+        println("MOVIE COUNT = " + String(list!.movies!.count))
+        return list!.movies!.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier(TableViewCellIdentifiers.listMovieCell, forIndexPath: indexPath) as! ListMovieCell
-
-        
-        let movieResult = list.movies[indexPath.row]
-//        let movieResult = result
-        cell.configureForMovieResult(movieResult)
-        println("MOVIE DETAIL SHOULD BE: " + movieResult.title!);
-        
-        return cell
+//        for (var i = 0; i < list!.movies!.count; i++) {
+            let cell = tableView.dequeueReusableCellWithIdentifier(TableViewCellIdentifiers.listMovieCell, forIndexPath: indexPath) as! ListMovieCell
+            let movieResult = list!.movies![indexPath.row]
+            cell.configureForMovieResult(movieResult)
+            return cell
+//        }
     }
 }
 
-//extension ListDetailViewController: UITableViewDelegate {
-//    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-//        if view.window!.rootViewController!.traitCollection.horizontalSizeClass == .Compact {
-//            tableView.deselectRowAtIndexPath(indexPath, animated: true)
-//            performSegueWithIdentifier("ShowDetail", sender: indexPath)
-//        } else {
-//            switch search.state {
-//            case .Results(let list):
-//                splitViewDetail?.searchResult = list[indexPath.row]
-//            default:
-//                break
-//            }
-//            
-//            if splitViewController!.displayMode != .AllVisible {
-//                hideMasterPane()
-//            }
-//        }
-//    }
-//    
-//    func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
-//        switch search.state {
-//        case .NotSearchedYet, .Loading, .NoResults:
-//            return nil
-//        case .Results:
-//            return indexPath
-//        }
-//    }
-//
-//}
+//extension ListDetailViewController: UITableViewDelegate
+
 

@@ -8,25 +8,7 @@
 
 import Foundation
 
-//struct Movie {
-//    var title: String?
-//    var director: String?
-//    var year: String?
-//    var rating: String?
-//    var imgURL: String?
-//    var actors: String?
-//    var plot: String?
-//    var awards: String?
-//    
-//    var rated: String?
-//    var released: String?
-//    var runtime: String?
-//    var genre: String?
-//    var writer: String?
-//    var language: String?
-//}
-
-class Movie: NSObject {
+class Movie {
     
     var title: String?
     var director: String?
@@ -44,40 +26,20 @@ class Movie: NSObject {
     var writer: String?
     var language: String?
     
-    override init () {
-        super.init()
-    }
-    
-    
-    init (title: String?,
-        director: String?,
-        year: String?,
-        rating : String?,
-        imgURl : NSURL?,
-        actors : String?,
-        plot : String?,
-        awards : String?,
-        rated : String?,
-        released : String?,
-        runtime : String?,
-        genre : String?,
-        writer : String?,
-        language : String? ) {
-            super.init()
-            self.title = title
-            self.director = director
-            self.year = year
-            self.rating = rating
-            self.imgURL = imgURl
-            self.actors = actors
-            self.plot = plot
-            self.awards = awards
-            self.rated = rated
-            self.released = released
-            self.runtime = runtime
-            self.genre = genre
-            self.writer = writer
-            self.language = language
+    init ( ) {
+            self.title = ""
+            self.director = ""
+            self.year = ""
+            self.rating = ""
+            self.actors = ""
+            self.plot = ""
+            self.awards = ""
+            self.rated = ""
+            self.released = ""
+            self.runtime = ""
+            self.genre = ""
+            self.writer = ""
+            self.language = ""
     }
     
 }

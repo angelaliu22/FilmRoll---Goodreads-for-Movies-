@@ -9,7 +9,7 @@
 import UIKit
 import WebKit
 
-class RottenTomatoesWebViewController: UIViewController, WKNavigationDelegate, UITextFieldDelegate, MovieSearchedDelegate  {
+class RottenTomatoesWebViewController: UIViewController, WKNavigationDelegate, UITextFieldDelegate  {
 
     var webView: WKWebView!
     var movieSearched:String = ""

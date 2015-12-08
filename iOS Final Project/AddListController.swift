@@ -25,9 +25,7 @@ class AddListController: UITableViewController, UITextFieldDelegate {
     }
     
     @IBAction func done() {
-        var list = List()
-        list.listName = newListName.text
-        list.movies = []
+        var list = List(listName: newListName.text, movies: [])
         delegate?.addListController(self, didFinishAddingList: list)
     }
 }

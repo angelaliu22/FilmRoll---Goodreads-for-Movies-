@@ -14,8 +14,8 @@ class ListsManager {
     
     init() {
         loadLists()
-//        println("Documents folder is \(documentsDirectory())\n")
-//        println("Data file path is \(dataFilePath())")
+        println("Documents folder is \(documentsDirectory())\n")
+        println("Data file path is \(dataFilePath())")
     }
     
     func documentsDirectory() -> String {
@@ -40,18 +40,20 @@ class ListsManager {
         if NSFileManager.defaultManager().fileExistsAtPath(path) {
             if let data = NSData(contentsOfFile: path) {
                 let unarchiver = NSKeyedUnarchiver(forReadingWithData: data)
-                self.lists = unarchiver.decodeObjectForKey("Lists") as! [List]
+                lists = unarchiver.decodeObjectForKey("Lists") as! [List]
                 unarchiver.finishDecoding()
             }
         }
     }
     
     func addNewMovieToList(listname: String, movie: Movie) {
+        println("List name to add to is: " + listname)
+        println("movie name is: " + movie.title!)
         
-        for list in self.lists {
+        for list in lists {
             if (list.listName == listname) {
-                list.movies.append(movie);
-//                println("movie" + movie + "added to the list" + listname)
+                list.movies?.append(movie)
+                println("movie added!")
             }
         }
     }

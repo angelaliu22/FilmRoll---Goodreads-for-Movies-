@@ -25,6 +25,9 @@ class ListsTableController: UITableViewController, AddListControllerDelegate {
         println("")
 
         lists.append(list)
+        println("")
+        println("ROWS INDEX IS NOW: " + String(lists.count))
+        println("")
         
         let indexPath = NSIndexPath(forRow: newRowIndex, inSection: 0)
         let indexPaths = [indexPath]
@@ -62,12 +65,20 @@ class ListsTableController: UITableViewController, AddListControllerDelegate {
         }
         else if segue.identifier == "showListDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow() {
-                let list = lists[indexPath.row] as List
-                
-                (segue.destinationViewController as! ListDetailViewController).list = list
+                for list in lists {
+                    if list.listName == "test" {
+                        println("DID WE FIND ONE??")
+                        (segue.destinationViewController as! ListDetailViewController).list = list
+                    }
+                }
+//                let list = lists[indexPath.row] as List
+//                
+//                (segue.destinationViewController as! ListDetailViewController).list = list
                 
             }
-       }
+        } else if segue.identifier == "searchForMovie" {
+            (segue.destinationViewController as! SearchViewController).lists = lists
+        }
     }
     
     // MARK: - Table View
@@ -77,6 +88,7 @@ class ListsTableController: UITableViewController, AddListControllerDelegate {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        println("HOW ABOUT THIS LIST COUNT: \(lists.count)")
         return lists.count
     }
     

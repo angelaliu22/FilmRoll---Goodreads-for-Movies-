@@ -11,18 +11,16 @@ import Foundation
 class List: NSObject, NSCoding {
     
     var listName: String
-    var movies: [Movie]
+    var movies: [Movie]?
     
-    override init() {
-        self.listName = "test"
-        self.movies = []
-        super.init()
+    init(listName: String, movies: [Movie]) {
+        self.listName = listName
+        self.movies = movies
     }
     
     required init(coder aDecoder: NSCoder) {
-        self.listName = "test"
-        self.movies = []
-//        self.movies = (aDecoder.decodeObjectForKey(listName) as? [Movie])!
+        
+        self.movies = (aDecoder.decodeObjectForKey(listName) as? [Movie])!
         super.init()
     }
     
