@@ -71,10 +71,6 @@ class ListsTableController: UITableViewController, AddListControllerDelegate {
                         (segue.destinationViewController as! ListDetailViewController).list = list
                     }
                 }
-//                let list = lists[indexPath.row] as List
-//                
-//                (segue.destinationViewController as! ListDetailViewController).list = list
-                
             }
         } else if segue.identifier == "searchForMovie" {
             (segue.destinationViewController as! SearchViewController).lists = lists

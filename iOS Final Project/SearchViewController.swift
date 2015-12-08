@@ -14,6 +14,8 @@ class SearchViewController: UIViewController {
     var lists = [List]()
     var newMovie = Movie()
     
+    var pickedList: String = ""
+    
     
     @IBOutlet weak var movieQuery: UITextField!
     @IBOutlet weak var movieTitleLabel: UILabel!
@@ -93,24 +95,13 @@ class SearchViewController: UIViewController {
         SaveToListButton.hidden = false
         SaveToListButton.enabled = true
     }
-
-    @IBAction func addMovieToList() {
-        println("list count is: " + String(lists.count))
-        
-        var listname = "test";
-        
-        for list in self.lists {
-            if (list.listName == listname) {
-                list.movies?.append(self.newMovie)
-                println("movie added!")
-            }
-        }
-        
-    }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "getMoreRatings" {
             (segue.destinationViewController as! RottenTomatoesWebViewController).searchedMovieTitle = movieQuery.text
+        } else if segue.identifier == "pickList" {
+            (segue.destinationViewController as! pickListModal).lists = self.lists
+            (segue.destinationViewController as! pickListModal).newMovie = self.newMovie
         }
     }
 }

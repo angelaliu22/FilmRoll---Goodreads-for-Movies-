@@ -13,15 +13,7 @@ class ListDetailViewController: UIViewController {
     
     @IBOutlet var tableView: UITableView!
     
-    var list: List? {
-        didSet {
-            // Update the view.
-//            self.configureView()
-        }
-    }
-    
-    
-
+    var list = List?()
 
     struct TableViewCellIdentifiers {
         static let listMovieCell = "ListMovieCell"
@@ -95,8 +87,12 @@ class ListDetailViewController: UIViewController {
 extension ListDetailViewController: UITableViewDataSource {
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        println("MOVIE COUNT = " + String(list!.movies!.count))
-        return list!.movies!.count
+        if let movieList = list!.movies {
+            println("MOVIE COUNT = " + String(list!.movies!.count))
+            return list!.movies!.count
+        } else {
+            return 0
+        }
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {

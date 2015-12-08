@@ -153,7 +153,7 @@
                                             <rect key="frame" x="242" y="548" width="128" height="36"/>
                                         </variation>
                                         <connections>
-                                            <action selector="addMovieToList" destination="BYZ-38-t0r" eventType="touchUpInside" id="37A-m7-9mo"/>
+                                            <segue destination="e4m-8B-d5o" kind="modal" identifier="pickList" modalPresentationStyle="fullScreen" id="yws-j5-0ZN"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gbg-7g-AQW">
@@ -254,6 +254,46 @@
             </objects>
             <point key="canvasLocation" x="4251" y="-510"/>
         </scene>
+        <!--Pick List Modal-->
+        <scene sceneID="OmO-3Q-Q7s">
+            <objects>
+                <tableViewController id="e4m-8B-d5o" customClass="pickListModal" customModule="iOS_Final_Project" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="MPi-1d-83G">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="iuT-5k-oSl" style="IBUITableViewCellStyleDefault" id="EeM-E3-Jdy">
+                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="EeM-E3-Jdy" id="x4V-C5-ZkX">
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" text="List Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="iuT-5k-oSl">
+                                            <rect key="frame" x="15" y="0.0" width="270" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="modal" identifier="listPicked" id="XlE-fD-2mo"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="e4m-8B-d5o" id="9Xo-Ax-DSl"/>
+                            <outlet property="delegate" destination="e4m-8B-d5o" id="xIl-xJ-3l4"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1uj-MZ-Fq7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5101.5" y="-331"/>
+        </scene>
         <!--Rotten Tomatoes Web View Controller-->
         <scene sceneID="fuK-Qd-5kL">
             <objects>
@@ -263,7 +303,7 @@
                         <viewControllerLayoutGuide type="bottom" id="KDh-G7-8Iq"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ABZ-Vf-X1l">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="400" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h4C-x3-DN7">
@@ -290,7 +330,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QAk-hQ-qFi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5142" y="-510"/>
+            <point key="canvasLocation" x="5094" y="-1044"/>
         </scene>
         <!--Lists Table Controller-->
         <scene sceneID="S78-nT-g1h">
@@ -336,7 +376,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="edA-XD-lYX">
                             <connections>
-                                <segue destination="PXE-IU-Efb" kind="modal" identifier="addList" id="vkY-v5-fbA"/>
+                                <segue destination="PXE-IU-Efb" kind="modal" identifier="addList" modalPresentationStyle="currentContext" id="vkY-v5-fbA"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -473,4 +513,7 @@
             <point key="canvasLocation" x="2478" y="372"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="XlE-fD-2mo"/>
+    </inferredMetricsTieBreakers>
 </document>

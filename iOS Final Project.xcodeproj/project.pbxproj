@@ -13,6 +13,7 @@
 		9D5CE2E61C1235A10021BE0C /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D5CE2E41C1235A10021BE0C /* LoadingCell.xib */; };
 		9D5CE2E71C1235A10021BE0C /* ListMovieCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D5CE2E51C1235A10021BE0C /* ListMovieCell.xib */; };
 		9D5CE2E91C15FCDB0021BE0C /* RottenTomatoesWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5CE2E81C15FCDB0021BE0C /* RottenTomatoesWebViewController.swift */; };
+		9D5CE2ED1C16A3CA0021BE0C /* pickListModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5CE2EC1C16A3CA0021BE0C /* pickListModal.swift */; };
 		9D8421AD1C0F656A0022D9A0 /* IMDbAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8421AC1C0F656A0022D9A0 /* IMDbAPI.swift */; };
 		9D87F4F81C10DE0600A310A1 /* ListsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D87F4F71C10DE0600A310A1 /* ListsManager.swift */; };
 		9D87F4FA1C10DE2900A310A1 /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D87F4F91C10DE2900A310A1 /* List.swift */; };
@@ -45,6 +46,7 @@
 		9D5CE2E41C1235A10021BE0C /* LoadingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingCell.xib; sourceTree = "<group>"; };
 		9D5CE2E51C1235A10021BE0C /* ListMovieCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListMovieCell.xib; sourceTree = "<group>"; };
 		9D5CE2E81C15FCDB0021BE0C /* RottenTomatoesWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RottenTomatoesWebViewController.swift; sourceTree = "<group>"; };
+		9D5CE2EC1C16A3CA0021BE0C /* pickListModal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = pickListModal.swift; sourceTree = "<group>"; };
 		9D8421AC1C0F656A0022D9A0 /* IMDbAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMDbAPI.swift; sourceTree = "<group>"; };
 		9D87F4F71C10DE0600A310A1 /* ListsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListsManager.swift; sourceTree = "<group>"; };
 		9D87F4F91C10DE2900A310A1 /* List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 				9D5CE2DE1C121B840021BE0C /* ListDetailViewController.swift */,
 				9D5CE2E11C1235950021BE0C /* ListMovieCell.swift */,
 				9D5CE2E51C1235A10021BE0C /* ListMovieCell.xib */,
+				9D5CE2EC1C16A3CA0021BE0C /* pickListModal.swift */,
 				9D87F4F71C10DE0600A310A1 /* ListsManager.swift */,
 				9D87F4FD1C10E18800A310A1 /* ListsTableController.swift */,
 				9D5CE2E41C1235A10021BE0C /* LoadingCell.xib */,
@@ -263,6 +266,7 @@
 				9D5CE2DF1C121B840021BE0C /* ListDetailViewController.swift in Sources */,
 				9DCD54021C0D549F00884627 /* AppDelegate.swift in Sources */,
 				9D87F5001C10EAAE00A310A1 /* Movie.swift in Sources */,
+				9D5CE2ED1C16A3CA0021BE0C /* pickListModal.swift in Sources */,
 				9D5CE2E91C15FCDB0021BE0C /* RottenTomatoesWebViewController.swift in Sources */,
 				9D5CE2E31C1235950021BE0C /* ListMovieCell.swift in Sources */,
 				9D87F4FA1C10DE2900A310A1 /* List.swift in Sources */,
