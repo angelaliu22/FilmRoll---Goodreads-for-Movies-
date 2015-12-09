@@ -38,6 +38,7 @@ class ListsTableController: UITableViewController, AddListControllerDelegate {
 
     
     override func awakeFromNib() {
+        println("BEFORE ARE: \(self.lists.count) LISTS")
         super.awakeFromNib()
     }
     
@@ -45,7 +46,16 @@ class ListsTableController: UITableViewController, AddListControllerDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
 //        self.navigationItem.leftBarButtonItem = self.editButtonItem()
+        println("ARE THERE ARE LISTS?!?!?!?!?!?!")
+        println("THERE ARE: \(self.lists.count) LISTS")
+        updateList()
         
+    }
+    
+    func updateList() {
+        if !lists.isEmpty {
+            tableView.reloadData()
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -84,7 +94,7 @@ class ListsTableController: UITableViewController, AddListControllerDelegate {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        println("HOW ABOUT THIS LIST COUNT: \(lists.count)")
+//        println("HOW ABOUT THIS LIST COUNT: \(lists.count)")
         return lists.count
     }
     

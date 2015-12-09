@@ -14,7 +14,7 @@ class ListsManager {
     
     init() {
         loadLists()
-        println("Documents folder is \(documentsDirectory())\n")
+//        println("Documents folder is \(documentsDirectory())\n")
 //        println("Data file path is \(dataFilePath())")
     }
     

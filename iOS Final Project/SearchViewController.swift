@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SearchViewController: UIViewController {
+class SearchViewController: UIViewController, UITextFieldDelegate {
     
     var listmanager = ListsManager()
     var lists = [List]()
@@ -62,16 +62,7 @@ class SearchViewController: UIViewController {
     }
     
     @IBAction func searchMovie(sender: UIButton) {
-        
-        var title = self.movieQuery.text
-        IMDbAPI.populateMovieResult(title, movie: newMovie)
-        
-        dispatch_async(dispatch_get_main_queue(),
-            {
-                sleep(1)
-                println("movie title : \(self.newMovie.title)")
-                self.updateLabels()
-        })
+        searchForMovie()
     }
     
     func updateLabels() {
@@ -103,5 +94,22 @@ class SearchViewController: UIViewController {
             (segue.destinationViewController as! pickListModal).lists = self.lists
             (segue.destinationViewController as! pickListModal).newMovie = self.newMovie
         }
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        movieQuery.resignFirstResponder()
+        searchForMovie()
+        return true
+    }
+    func searchForMovie() {
+        var title = self.movieQuery.text
+        IMDbAPI.populateMovieResult(title, movie: newMovie)
+        
+        dispatch_async(dispatch_get_main_queue(),
+            {
+                sleep(1)
+                println("movie title : \(self.newMovie.title)")
+                self.updateLabels()
+        })
     }
 }
