@@ -18,6 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func customizeAppearance() {
         let navigationController = window!.rootViewController as! UINavigationController
+        
 //        let barTintColor = UIColor(red: 20/255, green: 160/255, blue: 160/255, alpha: 1)
         navigationController.navigationBar.barTintColor = UIColor.orangeColor()
         navigationController.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]

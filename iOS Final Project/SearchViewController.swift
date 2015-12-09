@@ -31,7 +31,6 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var yearLabel: UILabel!
     @IBOutlet weak var directorLabel: UILabel!
     @IBOutlet weak var ratingLabel: UILabel!
-    @IBOutlet weak var plotLabel: UILabel!
     @IBOutlet weak var actorsLabel: UILabel!
     
     @IBOutlet weak var SeeMoreReviewsButton: UIButton!
@@ -39,6 +38,10 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        resetValues()
+    }
+    
+    func resetValues() {
         movieTitleLabel.text = "";
         moviePoster.image = nil;
         movieYear.text = "";
@@ -50,19 +53,15 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         yearLabel.hidden = true;
         directorLabel.hidden = true;
         ratingLabel.hidden = true;
-        plotLabel.hidden = true;
         actorsLabel.hidden = true;
         
         SeeMoreReviewsButton.hidden = true
         SaveToListButton.hidden = true
+
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-    }
-    
-    @IBAction func searchMovie(sender: UIButton) {
-        searchForMovie()
     }
     
     func updateLabels() {
@@ -78,7 +77,6 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         yearLabel.hidden = false;
         directorLabel.hidden = false;
         ratingLabel.hidden = false;
-        plotLabel.hidden = false;
         actorsLabel.hidden = false;
         
         SeeMoreReviewsButton.hidden = false
@@ -89,6 +87,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "getMoreRatings" {
+
             (segue.destinationViewController as! RottenTomatoesWebViewController).searchedMovieTitle = movieQuery.text
         } else if segue.identifier == "pickList" {
             (segue.destinationViewController as! pickListModal).lists = self.lists
