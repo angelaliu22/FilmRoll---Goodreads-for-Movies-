@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9D4878D81C192B0B00977FD8 /* AddListFromSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4878D71C192B0B00977FD8 /* AddListFromSearchController.swift */; };
 		9D5CE2DF1C121B840021BE0C /* ListDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5CE2DE1C121B840021BE0C /* ListDetailViewController.swift */; };
 		9D5CE2E21C1235950021BE0C /* NothingFoundCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D5CE2E01C1235950021BE0C /* NothingFoundCell.xib */; };
 		9D5CE2E31C1235950021BE0C /* ListMovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5CE2E11C1235950021BE0C /* ListMovieCell.swift */; };
@@ -40,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9D4878D71C192B0B00977FD8 /* AddListFromSearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddListFromSearchController.swift; sourceTree = "<group>"; };
 		9D5CE2DE1C121B840021BE0C /* ListDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListDetailViewController.swift; sourceTree = "<group>"; };
 		9D5CE2E01C1235950021BE0C /* NothingFoundCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NothingFoundCell.xib; sourceTree = "<group>"; };
 		9D5CE2E11C1235950021BE0C /* ListMovieCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListMovieCell.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				9D87F5031C10FDC600A310A1 /* AddListController.swift */,
+				9D4878D71C192B0B00977FD8 /* AddListFromSearchController.swift */,
 				9DCD54011C0D549F00884627 /* AppDelegate.swift */,
 				9DCD540B1C0D549F00884627 /* Images.xcassets */,
 				9D8421AC1C0F656A0022D9A0 /* IMDbAPI.swift */,
@@ -266,6 +269,7 @@
 				9D5CE2DF1C121B840021BE0C /* ListDetailViewController.swift in Sources */,
 				9DCD54021C0D549F00884627 /* AppDelegate.swift in Sources */,
 				9D87F5001C10EAAE00A310A1 /* Movie.swift in Sources */,
+				9D4878D81C192B0B00977FD8 /* AddListFromSearchController.swift in Sources */,
 				9D5CE2ED1C16A3CA0021BE0C /* pickListModal.swift in Sources */,
 				9D5CE2E91C15FCDB0021BE0C /* RottenTomatoesWebViewController.swift in Sources */,
 				9D5CE2E31C1235950021BE0C /* ListMovieCell.swift in Sources */,

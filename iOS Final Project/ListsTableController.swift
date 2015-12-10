@@ -38,7 +38,6 @@ class ListsTableController: UITableViewController, AddListControllerDelegate {
 
     
     override func awakeFromNib() {
-        println("BEFORE ARE: \(self.lists.count) LISTS")
         super.awakeFromNib()
     }
     
@@ -52,8 +51,13 @@ class ListsTableController: UITableViewController, AddListControllerDelegate {
         
     }
     
+    override func viewDidAppear(animated: Bool) {
+        updateList()
+    }
+    
     func updateList() {
         if !lists.isEmpty {
+            println("So.... lists is not empty")
             tableView.reloadData()
         }
     }
@@ -75,12 +79,7 @@ class ListsTableController: UITableViewController, AddListControllerDelegate {
         }
         else if segue.identifier == "showListDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow() {
-//                for list in lists {
-//                    if list.listName == lists[indexPath.row] {
-//                        println("DID WE FIND ONE??")
-                        (segue.destinationViewController as! ListDetailViewController).list = lists[indexPath.row]
-//                    }
-//                }
+                (segue.destinationViewController as! ListDetailViewController).list = lists[indexPath.row]
             }
         } else if segue.identifier == "searchForMovie" {
             (segue.destinationViewController as! SearchViewController).lists = lists

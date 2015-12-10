@@ -24,7 +24,9 @@ class RottenTomatoesWebViewController: UIViewController, WKNavigationDelegate, U
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let url = NSURL(string: "http://www.rottentomatoes.com/m/\(searchedMovieTitle!)/")
+        let queryString = searchedMovieTitle!.stringByReplacingOccurrencesOfString(" ", withString: "_", options: NSStringCompareOptions.LiteralSearch, range: nil)
+        println("Rotten tomatoes query: \(queryString)")
+        let url = NSURL(string: "http://www.rottentomatoes.com/m/\(queryString)/")
         println(url)
         webView.loadRequest(NSURLRequest(URL: url!))
         webView.allowsBackForwardNavigationGestures = true

@@ -26,8 +26,6 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var movieRating: UILabel!
     @IBOutlet weak var moviePlot: UILabel!
     
-    
-
     @IBOutlet weak var yearLabel: UILabel!
     @IBOutlet weak var directorLabel: UILabel!
     @IBOutlet weak var ratingLabel: UILabel!
@@ -37,6 +35,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var SaveToListButton: UIButton!
     
     override func viewDidLoad() {
+        self.navigationItem.hidesBackButton = true;
         super.viewDidLoad()
         resetValues()
     }
@@ -66,8 +65,11 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
     
     func updateLabels() {
         self.movieTitleLabel.text = self.newMovie.title
-        let data = NSData(contentsOfURL: self.newMovie.imgURL!)
-        self.moviePoster.image = UIImage(data: data!)
+        if let data = NSData(contentsOfURL: self.newMovie.imgURL!) {
+            self.moviePoster.image = UIImage(data: data)
+        } else {
+            self.moviePoster.image = UIImage(named: "movieperson_placeholder-103642")
+        }
         self.movieYear.text = self.newMovie.year
         self.movieDirector.text = self.newMovie.director
         self.movieActors.text = self.newMovie.actors
@@ -90,9 +92,28 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
 
             (segue.destinationViewController as! RottenTomatoesWebViewController).searchedMovieTitle = movieQuery.text
         } else if segue.identifier == "pickList" {
-            (segue.destinationViewController as! pickListModal).lists = self.lists
-            (segue.destinationViewController as! pickListModal).newMovie = self.newMovie
+            if !self.lists.isEmpty {
+                (segue.destinationViewController as! pickListModal).lists = self.lists
+                (segue.destinationViewController as! pickListModal).newMovie = self.newMovie
+            }
+            else {
+                noListsAlert()
+            }
+        } else if segue.identifier == "addListFromSearch" {
+            (segue.destinationViewController as! AddListFromSearchController).lists = self.lists
+            (segue.destinationViewController as! AddListFromSearchController).newMovie = self.newMovie
+        } else if segue.identifier == "fromSearchToListTable" {
+            (segue.destinationViewController as! ListsTableController).lists = self.lists
         }
+    }
+    
+    func noListsAlert() {
+        let alertController = UIAlertController(title: "Uh Oh!", message:
+            "You have no lists to save to :(", preferredStyle: UIAlertControllerStyle.Alert)
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
+        alertController.addAction(UIAlertAction(title: "Add A List!", style: UIAlertActionStyle.Default,handler: { action in self.performSegueWithIdentifier("addListFromSearch", sender: self) }))
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
@@ -100,6 +121,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         searchForMovie()
         return true
     }
+    
     func searchForMovie() {
         var title = self.movieQuery.text
         IMDbAPI.populateMovieResult(title, movie: newMovie)
