@@ -455,7 +455,7 @@
                     <navigationItem key="navigationItem" id="5f5-dg-3og">
                         <nil key="title"/>
                         <barButtonItem key="leftBarButtonItem" width="9" style="plain" id="ISF-92-gFg">
-                            <textField key="customView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search For A Movie" minimumFontSize="20" id="eAY-vF-v1u">
+                            <textField key="customView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="236" placeholderIntrinsicHeight="30" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search For A Movie" minimumFontSize="20" id="eAY-vF-v1u">
                                 <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -756,6 +756,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="eGg-BM-bXy"/>
-        <segue reference="o7c-mV-raY"/>
+        <segue reference="thN-9v-ZeW"/>
     </inferredMetricsTieBreakers>
 </document>

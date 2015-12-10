@@ -36,6 +36,7 @@ class AddListFromSearchController: UITableViewController, UITextFieldDelegate {
         if segue.identifier == "backToSearchFromAdd" {
             addToList()
             (segue.destinationViewController as! SearchViewController).lists = self.lists
+            (segue.destinationViewController as! SearchViewController).newMovie = self.newMovie
         }
     }
 }

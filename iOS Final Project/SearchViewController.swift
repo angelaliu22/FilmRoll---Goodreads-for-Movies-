@@ -16,7 +16,6 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
     
     var pickedList: String = ""
     
-    
     @IBOutlet weak var movieQuery: UITextField!
     @IBOutlet weak var movieTitleLabel: UILabel!
     @IBOutlet weak var moviePoster: UIImageView!
@@ -38,6 +37,12 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         self.navigationItem.hidesBackButton = true;
         super.viewDidLoad()
         resetValues()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        if (newMovie.title != "") {
+            updateLabels()
+        }
     }
     
     func resetValues() {
@@ -102,6 +107,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         } else if segue.identifier == "addListFromSearch" {
             (segue.destinationViewController as! AddListFromSearchController).lists = self.lists
             (segue.destinationViewController as! AddListFromSearchController).newMovie = self.newMovie
+            
         } else if segue.identifier == "fromSearchToListTable" {
             (segue.destinationViewController as! ListsTableController).lists = self.lists
         }
