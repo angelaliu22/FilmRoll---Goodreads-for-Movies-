@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		9D4878D81C192B0B00977FD8 /* AddListFromSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4878D71C192B0B00977FD8 /* AddListFromSearchController.swift */; };
-		9D4878DA1C1A18D100977FD8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D4878D91C1A18D100977FD8 /* Images.xcassets */; };
 		9D5CE2DF1C121B840021BE0C /* ListDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5CE2DE1C121B840021BE0C /* ListDetailViewController.swift */; };
 		9D5CE2E21C1235950021BE0C /* NothingFoundCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D5CE2E01C1235950021BE0C /* NothingFoundCell.xib */; };
 		9D5CE2E31C1235950021BE0C /* ListMovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5CE2E11C1235950021BE0C /* ListMovieCell.swift */; };
@@ -28,6 +27,7 @@
 		9DCD540A1C0D549F00884627 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DCD54081C0D549F00884627 /* Main.storyboard */; };
 		9DCD540F1C0D549F00884627 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DCD540D1C0D549F00884627 /* LaunchScreen.xib */; };
 		9DCD541B1C0D549F00884627 /* iOS_Final_ProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCD541A1C0D549F00884627 /* iOS_Final_ProjectTests.swift */; };
+		9DEC7C441C1A229100E66E16 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DEC7C431C1A229100E66E16 /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,7 +42,6 @@
 
 /* Begin PBXFileReference section */
 		9D4878D71C192B0B00977FD8 /* AddListFromSearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddListFromSearchController.swift; sourceTree = "<group>"; };
-		9D4878D91C1A18D100977FD8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ../../../../../../.Trash/Images.xcassets; sourceTree = "<group>"; };
 		9D5CE2DE1C121B840021BE0C /* ListDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListDetailViewController.swift; sourceTree = "<group>"; };
 		9D5CE2E01C1235950021BE0C /* NothingFoundCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NothingFoundCell.xib; sourceTree = "<group>"; };
 		9D5CE2E11C1235950021BE0C /* ListMovieCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListMovieCell.swift; sourceTree = "<group>"; };
@@ -66,6 +65,7 @@
 		9DCD54141C0D549F00884627 /* iOS Final ProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "iOS Final ProjectTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DCD54191C0D549F00884627 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9DCD541A1C0D549F00884627 /* iOS_Final_ProjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOS_Final_ProjectTests.swift; sourceTree = "<group>"; };
+		9DEC7C431C1A229100E66E16 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,8 +107,8 @@
 		9DCD53FE1C0D549F00884627 /* iOS Final Project */ = {
 			isa = PBXGroup;
 			children = (
-				9D4878D91C1A18D100977FD8 /* Images.xcassets */,
 				9D87F5031C10FDC600A310A1 /* AddListController.swift */,
+				9DEC7C431C1A229100E66E16 /* Images.xcassets */,
 				9D4878D71C192B0B00977FD8 /* AddListFromSearchController.swift */,
 				9DCD54011C0D549F00884627 /* AppDelegate.swift */,
 				9D8421AC1C0F656A0022D9A0 /* IMDbAPI.swift */,
@@ -240,7 +240,7 @@
 				9D5CE2E21C1235950021BE0C /* NothingFoundCell.xib in Resources */,
 				9D5CE2E71C1235A10021BE0C /* ListMovieCell.xib in Resources */,
 				9DCD540A1C0D549F00884627 /* Main.storyboard in Resources */,
-				9D4878DA1C1A18D100977FD8 /* Images.xcassets in Resources */,
+				9DEC7C441C1A229100E66E16 /* Images.xcassets in Resources */,
 				9DCD540F1C0D549F00884627 /* LaunchScreen.xib in Resources */,
 				9D5CE2E61C1235A10021BE0C /* LoadingCell.xib in Resources */,
 			);

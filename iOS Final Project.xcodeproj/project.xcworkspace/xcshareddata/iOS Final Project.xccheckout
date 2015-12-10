@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>C6ED6CEF-D758-4081-8D75-A8F737BEC8FB</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>iOS Final Project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>2A2BAF1EE37F6C51292339EED21F472AA71A824D</key>
 		<string>https://github.com/angelaliu22/FilmRoll---Goodreads-for-Movies-.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>iOS Final Project.xcodeproj/project.xcworkspace</string>
+	<string>iOS Final Project.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>2A2BAF1EE37F6C51292339EED21F472AA71A824D</key>
