@@ -28,4 +28,8 @@ class AddListController: UITableViewController, UITextFieldDelegate {
         var list = List(listName: newListName.text, movies: [])
         delegate?.addListController(self, didFinishAddingList: list)
     }
+    
+    override func viewDidLoad() {
+        self.navigationController!.navigationBar.barTintColor = UIColor.orangeColor();
+    }
 }

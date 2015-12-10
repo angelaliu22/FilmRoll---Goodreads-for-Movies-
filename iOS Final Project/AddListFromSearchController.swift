@@ -20,9 +20,18 @@ class AddListFromSearchController: UITableViewController, UITextFieldDelegate {
         navigationController?.popViewControllerAnimated(true)
     }
     
+    override func viewDidLoad() {
+        self.navigationController!.navigationBar.barTintColor = UIColor.orangeColor();
+    }
+    
     func addToList() {
         var list = List(listName: newListName.text, movies: [newMovie])
         self.lists.append(list)
+        dispatch_async(dispatch_get_main_queue(),
+            {
+                self.movieAddedAlert()
+        })
+
     }
     
     func movieAddedAlert() {

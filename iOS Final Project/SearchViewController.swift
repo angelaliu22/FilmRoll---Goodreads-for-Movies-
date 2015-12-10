@@ -69,27 +69,31 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
     }
     
     func updateLabels() {
-        self.movieTitleLabel.text = self.newMovie.title
-        if let data = NSData(contentsOfURL: self.newMovie.imgURL!) {
-            self.moviePoster.image = UIImage(data: data)
+        if newMovie.title == "Movie not found" {
+            movieNotFoundAlert()
         } else {
-            self.moviePoster.image = UIImage(named: "movieperson_placeholder-103642")
+            self.movieTitleLabel.text = self.newMovie.title
+            if let data = NSData(contentsOfURL: self.newMovie.imgURL!) {
+                self.moviePoster.image = UIImage(data: data)
+            } else {
+                self.moviePoster.image = UIImage(named: "movieperson_placeholder-103642")
+            }
+            self.movieYear.text = self.newMovie.year
+            self.movieDirector.text = self.newMovie.director
+            self.movieActors.text = self.newMovie.actors
+            self.movieRating.text = self.newMovie.rating
+            self.moviePlot.text = self.newMovie.plot
+        
+            yearLabel.hidden = false;
+            directorLabel.hidden = false;
+            ratingLabel.hidden = false;
+            actorsLabel.hidden = false;
+        
+            SeeMoreReviewsButton.hidden = false
+            SeeMoreReviewsButton.enabled = true
+            SaveToListButton.hidden = false
+            SaveToListButton.enabled = true
         }
-        self.movieYear.text = self.newMovie.year
-        self.movieDirector.text = self.newMovie.director
-        self.movieActors.text = self.newMovie.actors
-        self.movieRating.text = self.newMovie.rating
-        self.moviePlot.text = self.newMovie.plot
-        
-        yearLabel.hidden = false;
-        directorLabel.hidden = false;
-        ratingLabel.hidden = false;
-        actorsLabel.hidden = false;
-        
-        SeeMoreReviewsButton.hidden = false
-        SeeMoreReviewsButton.enabled = true
-        SaveToListButton.hidden = false
-        SaveToListButton.enabled = true
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -97,7 +101,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
 
             (segue.destinationViewController as! RottenTomatoesWebViewController).searchedMovieTitle = movieQuery.text
         } else if segue.identifier == "pickList" {
-            if !self.lists.isEmpty {
+            if !self.lists.isEmpty || newMovie.title == "" {
                 (segue.destinationViewController as! pickListModal).lists = self.lists
                 (segue.destinationViewController as! pickListModal).newMovie = self.newMovie
             }
@@ -119,6 +123,13 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
         alertController.addAction(UIAlertAction(title: "Add A List!", style: UIAlertActionStyle.Default,handler: { action in self.performSegueWithIdentifier("addListFromSearch", sender: self) }))
         
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
+    
+    func movieNotFoundAlert() {
+        let alertController = UIAlertController(title: "Movie Not Found!", message:
+            "Oh No! We couldn't find a movie with the title \(movieQuery.text) :(", preferredStyle: UIAlertControllerStyle.Alert)
+        alertController.addAction(UIAlertAction(title: "Try Again", style: UIAlertActionStyle.Default,handler: nil))
         self.presentViewController(alertController, animated: true, completion: nil)
     }
     
