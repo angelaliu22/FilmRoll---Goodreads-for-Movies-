@@ -65,7 +65,7 @@ class pickListModal: UITableViewController {
                     println("MOVIE COUNT: \(countMovies)")
                     lists[indexPath.row].movies?.append(newMovie)
                     listsManager.saveLists()
-                    listsManager.loadLists()
+//                    listsManager.loadLists()
                     
                     println("NEW MOVIE ADDED IS: \(newMovie.title)")
                     (segue.destinationViewController as! SearchViewController).lists = self.lists

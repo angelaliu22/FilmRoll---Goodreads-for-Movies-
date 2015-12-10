@@ -19,14 +19,8 @@ class ListsTableController: UITableViewController, AddListControllerDelegate {
     func addListController(controller: AddListController, didFinishAddingList list: List) {
         
         let newRowIndex = lists.count
-//        println("")
-//        println("ROWS INDEX IS : " + String(lists.count))
-//        println("")
         
         lists.append(list)
-//        println("")
-//        println("ROWS INDEX IS NOW: " + String(lists.count))
-//        println("")
         
         let indexPath = NSIndexPath(forRow: newRowIndex, inSection: 0)
         let indexPaths = [indexPath]
@@ -44,8 +38,6 @@ class ListsTableController: UITableViewController, AddListControllerDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
 //        self.navigationItem.leftBarButtonItem = self.editButtonItem()
-//        println("ARE THERE ARE LISTS?!?!?!?!?!?!")
-//        println("THERE ARE: \(self.lists.count) LISTS")
         updateList()
         
     }
@@ -56,7 +48,6 @@ class ListsTableController: UITableViewController, AddListControllerDelegate {
     
     func updateList() {
         if !lists.isEmpty {
-            println("So.... lists is not empty")
             tableView.reloadData()
         }
     }
@@ -100,7 +91,6 @@ class ListsTableController: UITableViewController, AddListControllerDelegate {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        println("HOW ABOUT THIS LIST COUNT: \(lists.count)")
         return lists.count
     }
     

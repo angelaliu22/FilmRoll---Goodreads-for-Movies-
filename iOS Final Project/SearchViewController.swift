@@ -38,9 +38,6 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
     }
     
     override func viewDidAppear(animated: Bool) {
-        for (var i = 0; i < lists[0].movies!.count; i++) {
-            println("IN SEARCH TABLE THE MOVIES ARE: \(lists[0].movies![i].title)")
-        }
         if (newMovie.title != "") {
             updateLabels()
         }

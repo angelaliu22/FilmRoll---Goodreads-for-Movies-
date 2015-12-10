@@ -28,7 +28,6 @@ class IMDbAPI {
     }
     
     class func handleMovieData(movie: Movie, data: NSData) {
-        println("*~*~*~*~*~*~*~*~*~*~*~*~*")
         var err: NSError?
         let jsonDict = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: &err) as! NSDictionary
         

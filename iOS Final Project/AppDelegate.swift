@@ -40,11 +40,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         if !listsManager.lists.isEmpty {
             controller.lists = listsManager.lists
-            println("")
-            println("Controller: \(controller)")
-            println(controller.lists.first?.listName)
-            println("APP DELEGATE LIST COUNT IS: " + String(controller.lists.count))
-            println("")
         }
     }
 
