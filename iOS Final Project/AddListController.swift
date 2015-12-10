@@ -29,6 +29,14 @@ class AddListController: UITableViewController, UITextFieldDelegate {
         addList()
     }
     
+    override func shouldAutorotate() -> Bool {
+        return false
+    }
+    
+    override func supportedInterfaceOrientations() -> Int {
+        return UIInterfaceOrientation.Portrait.rawValue
+    }
+    
     var lists = [List]()
     
     override func viewDidLoad() {

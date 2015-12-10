@@ -26,6 +26,14 @@ class AddListFromSearchController: UITableViewController, UITextFieldDelegate {
         self.navigationController!.navigationBar.barTintColor = UIColor.orangeColor();
     }
     
+    override func shouldAutorotate() -> Bool {
+        return false
+    }
+    
+    override func supportedInterfaceOrientations() -> Int {
+        return UIInterfaceOrientation.Portrait.rawValue
+    }
+    
     func addToList() {
         var list = List(listName: newListName.text, listDescription: newListDescription.text, movies: [newMovie])
         self.lists.append(list)

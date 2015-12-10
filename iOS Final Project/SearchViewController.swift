@@ -44,6 +44,14 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    override func shouldAutorotate() -> Bool {
+        return false
+    }
+    
+    override func supportedInterfaceOrientations() -> Int {
+        return UIInterfaceOrientation.Portrait.rawValue
+    }
+    
     func resetValues() {
         movieTitleLabel.text = "";
         moviePoster.image = nil;

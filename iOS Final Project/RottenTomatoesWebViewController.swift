@@ -32,6 +32,14 @@ class RottenTomatoesWebViewController: UIViewController, WKNavigationDelegate, U
         webView.allowsBackForwardNavigationGestures = true
     }
     
+    override func shouldAutorotate() -> Bool {
+        return false
+    }
+    
+    override func supportedInterfaceOrientations() -> Int {
+        return UIInterfaceOrientation.Portrait.rawValue
+    }
+    
     override func loadView() {
         super.loadView()
         webView = WKWebView()
