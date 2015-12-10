@@ -35,6 +35,7 @@ class ListDetailViewController: UIViewController {
         cellNib = UINib(nibName: TableViewCellIdentifiers.loadingCell, bundle: nil)
         tableView.registerNib(cellNib, forCellReuseIdentifier: TableViewCellIdentifiers.loadingCell)
         
+        self.title = "\(list!.listName)"
     }
     
     override func shouldAutorotate() -> Bool {

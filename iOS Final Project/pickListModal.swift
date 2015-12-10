@@ -46,6 +46,7 @@ class pickListModal: UITableViewController {
         
         let list = lists[indexPath.row] as List
         cell.textLabel!.text = list.listName
+        cell.detailTextLabel!.text = list.listDescription
         
         return cell
         
@@ -71,9 +72,12 @@ class pickListModal: UITableViewController {
                 if let myMovies = lists[indexPath.row].movies {
                     let countMovies = myMovies.count
                     println("MOVIE COUNT: \(countMovies)")
+                    
+                    //TO DO WHEN DUPLICATE ISSUE IS FIXED: Do not allow duplicate movies lol 
+                    
                     lists[indexPath.row].movies?.append(newMovie)
                     listsManager.saveLists()
-//                    listsManager.loadLists()
+                    listsManager.loadLists()
                     
                     println("NEW MOVIE ADDED IS: \(newMovie.title)")
                     (segue.destinationViewController as! SearchViewController).lists = self.lists
