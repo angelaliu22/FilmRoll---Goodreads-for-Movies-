@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Movie {
+class Movie: NSObject, NSCoding {
     
     var title: String?
     var director: String?
@@ -26,13 +26,14 @@ class Movie {
 //    var writer: String?
 //    var language: String?
     
-    init ( ) {
+    override init ( ) {
             self.title = ""
             self.director = ""
             self.year = ""
             self.rating = ""
             self.actors = ""
             self.plot = ""
+            self.imgURL = nil
     }
     
     required init(coder aDecoder: NSCoder) {
@@ -42,7 +43,7 @@ class Movie {
         self.rating = (aDecoder.decodeObjectForKey("rating") as? String)!
         self.actors = (aDecoder.decodeObjectForKey("actors") as? String)!
         self.plot = (aDecoder.decodeObjectForKey("plot") as? String)!
-        self.imgURL = (aDecoder.decodeObjectForKey("plot") as? NSURL)!
+        self.imgURL = (aDecoder.decodeObjectForKey("imgURL") as? NSURL)!
     }
     
     func encodeWithCoder(aCoder: NSCoder) {

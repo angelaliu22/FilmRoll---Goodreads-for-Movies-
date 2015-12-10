@@ -1,4 +1,4 @@
-//
+    //
 //  ViewController.swift
 //  iOS Final Project
 //
@@ -38,6 +38,9 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
     }
     
     override func viewDidAppear(animated: Bool) {
+        for (var i = 0; i < lists[0].movies!.count; i++) {
+            println("IN SEARCH TABLE THE MOVIES ARE: \(lists[0].movies![i].title)")
+        }
         if (newMovie.title != "") {
             updateLabels()
         }
@@ -71,8 +74,9 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
             movieNotFoundAlert()
         } else {
             self.movieTitleLabel.text = self.newMovie.title
-            if let data = NSData(contentsOfURL: self.newMovie.imgURL!) {
-                self.moviePoster.image = UIImage(data: data)
+            if let url = self.newMovie.imgURL {
+                let data = NSData(contentsOfURL: self.newMovie.imgURL!)
+                self.moviePoster.image = UIImage(data: data!)
             } else {
                 self.moviePoster.image = UIImage(named: "movieperson_placeholder-103642")
             }

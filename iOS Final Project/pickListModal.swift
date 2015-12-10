@@ -13,6 +13,7 @@ class pickListModal: UITableViewController {
     var lists = [List]()
     var newMovie = Movie()
     var pickedList: String = ""
+    let listsManager = ListsManager()
     
     override func viewDidLoad() {
         
@@ -59,10 +60,23 @@ class pickListModal: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "listPicked" {
             if let indexPath = self.tableView.indexPathForSelectedRow() {
-                lists[indexPath.row].movies?.append(newMovie)
-                println("NEW MOVIE ADDED IS: \(newMovie.title)")
-                (segue.destinationViewController as! SearchViewController).lists = self.lists
-                println("PICKED LIST IS: \(pickedList)")
+                if let myMovies = lists[indexPath.row].movies {
+                    let countMovies = myMovies.count
+                    println("MOVIE COUNT: \(countMovies)")
+                    lists[indexPath.row].movies?.append(newMovie)
+                    listsManager.saveLists()
+                    listsManager.loadLists()
+                    
+                    println("NEW MOVIE ADDED IS: \(newMovie.title)")
+                    (segue.destinationViewController as! SearchViewController).lists = self.lists
+                    (segue.destinationViewController as! SearchViewController).newMovie = self.newMovie
+                    println("LIST COUNT IS: \(lists[indexPath.row].movies?.count)")
+                    for (var i = 0; i < lists[0].movies!.count; i++) {
+                        println("IN PICK LIST THE MOVIES ARE: \(lists[0].movies![i].title)")
+                    }
+                }
+                // lists[indexPath.row].movies?.append(newMovie)
+                
             }
             dismissViewControllerAnimated(true, completion: nil)
         }
