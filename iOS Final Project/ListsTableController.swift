@@ -17,13 +17,12 @@ class ListsTableController: UITableViewController, AddListControllerDelegate {
     }
     
     func addListController(controller: AddListController, didFinishAddingList list: List) {
-    
-    
+        
         let newRowIndex = lists.count
         println("")
         println("ROWS INDEX IS : " + String(lists.count))
         println("")
-
+        
         lists.append(list)
         println("")
         println("ROWS INDEX IS NOW: " + String(lists.count))
@@ -75,7 +74,11 @@ class ListsTableController: UITableViewController, AddListControllerDelegate {
             let navigationController = segue.destinationViewController as! UINavigationController
             let controller = navigationController.topViewController as! AddListController
             controller.delegate = self
-
+            
+            let navVC = segue.destinationViewController as! UINavigationController
+            let addListVC = navVC.viewControllers.first as! AddListController
+            addListVC.lists = self.lists
+            
         }
         else if segue.identifier == "showListDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow() {
@@ -118,5 +121,6 @@ class ListsTableController: UITableViewController, AddListControllerDelegate {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
         }
     }
+    
 }
 

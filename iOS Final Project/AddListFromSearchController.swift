@@ -48,4 +48,9 @@ class AddListFromSearchController: UITableViewController, UITextFieldDelegate {
             (segue.destinationViewController as! SearchViewController).newMovie = self.newMovie
         }
     }
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        newListName.resignFirstResponder()
+        addToList()
+        return true
+    }
 }

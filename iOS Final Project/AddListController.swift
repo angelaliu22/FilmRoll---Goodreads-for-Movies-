@@ -25,11 +25,45 @@ class AddListController: UITableViewController, UITextFieldDelegate {
     }
     
     @IBAction func done() {
-        var list = List(listName: newListName.text, movies: [])
-        delegate?.addListController(self, didFinishAddingList: list)
+        addList()
     }
+    
+    var lists = [List]()
     
     override func viewDidLoad() {
         self.navigationController!.navigationBar.barTintColor = UIColor.orangeColor();
     }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        newListName.resignFirstResponder()
+        addList()
+        return true
+    }
+    
+    func addList() {
+        var list = List(listName: newListName.text, movies: [])
+        
+        if listisDuplicate(list) {
+            duplicateListNameAlert()
+            newListName.text = ""
+        } else {
+            delegate?.addListController(self, didFinishAddingList: list)
+        }
+    }
+    
+    func listisDuplicate(list: List) -> Bool {
+        for curList in lists {
+            if list.listName == curList.listName {
+                return true
+            }
+        }
+        return false
+    }
+    
+    func duplicateListNameAlert() {
+        let alertController = UIAlertController(title: "List Name Exists!", message: "Looks like you already have a list with this name!", preferredStyle: UIAlertControllerStyle.Alert)
+        alertController.addAction(UIAlertAction(title: "Try Again", style: UIAlertActionStyle.Default,handler: nil))
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
+    
 }
