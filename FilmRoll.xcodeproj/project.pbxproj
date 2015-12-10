@@ -213,7 +213,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 9DCD53F71C0D549F00884627 /* Build configuration list for PBXProject "iOS Final Project" */;
+			buildConfigurationList = 9DCD53F71C0D549F00884627 /* Build configuration list for PBXProject "FilmRoll" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -455,7 +455,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		9DCD53F71C0D549F00884627 /* Build configuration list for PBXProject "iOS Final Project" */ = {
+		9DCD53F71C0D549F00884627 /* Build configuration list for PBXProject "FilmRoll" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9DCD541C1C0D549F00884627 /* Debug */,
