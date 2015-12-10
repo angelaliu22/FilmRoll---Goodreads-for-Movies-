@@ -41,6 +41,7 @@ class AddListController: UITableViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         newListName.tintColor = UIColor.blackColor()
+        newListDefinition.tintColor = UIColor.blackColor()
         self.navigationController!.navigationBar.barTintColor = UIColor.orangeColor();
     }
     
