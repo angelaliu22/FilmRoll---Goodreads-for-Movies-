@@ -78,7 +78,7 @@ class pickListModal: UITableViewController {
                 // lists[indexPath.row].movies?.append(newMovie)
                 
             }
-            dismissViewControllerAnimated(true, completion: nil)
+            navigationController?.popViewControllerAnimated(true)
         }
     }
 }

@@ -46,10 +46,13 @@ class IMDbAPI {
             movie.year = jsonDict["Year"] as? String
             movie.plot = jsonDict["Plot"] as? String
             let poster = jsonDict["Poster"] as? String
-            movie.imgURL = NSURL(string: poster!)
+            if poster == "N/A" {
+                movie.imgURL = nil
+            } else {
+                movie.imgURL = NSURL(string: poster!)
+            }
             movie.director = jsonDict["Director"] as? String
             movie.actors = jsonDict["Actors"] as? String
-            
         }
     }
 }

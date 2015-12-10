@@ -11,6 +11,7 @@ import UIKit
 class AddListFromSearchController: UITableViewController, UITextFieldDelegate {
     
     @IBOutlet weak var newListName: UITextField!
+    @IBOutlet weak var newListDescription: UITextField!
     @IBOutlet weak var doneBarButton: UIBarButtonItem!
     
     var lists = [List]()
@@ -21,11 +22,12 @@ class AddListFromSearchController: UITableViewController, UITextFieldDelegate {
     }
     
     override func viewDidLoad() {
+        newListName.tintColor = UIColor.blackColor()
         self.navigationController!.navigationBar.barTintColor = UIColor.orangeColor();
     }
     
     func addToList() {
-        var list = List(listName: newListName.text, movies: [newMovie])
+        var list = List(listName: newListName.text, listDescription: newListDescription.text, movies: [newMovie])
         self.lists.append(list)
         dispatch_async(dispatch_get_main_queue(),
             {

@@ -99,6 +99,7 @@ class ListsTableController: UITableViewController, AddListControllerDelegate {
         
         let list = lists[indexPath.row] as List
         cell.textLabel!.text = list.listName
+        cell.detailTextLabel!.text = list.listDescription
         return cell
     }
     

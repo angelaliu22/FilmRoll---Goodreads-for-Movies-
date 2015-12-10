@@ -38,8 +38,10 @@ class ListMovieCell: UITableViewCell {
     movieName.text = movie.title
     
     moviePoster.image = UIImage(named: "Placeholder")
-    if let data = NSData(contentsOfURL: movie.imgURL!) {
-        self.moviePoster.image = UIImage(data: data)
+    
+    if movie.imgURL != nil {
+        let data = NSData(contentsOfURL: movie.imgURL!) 
+        self.moviePoster.image = UIImage(data: data!)
     } else {
         self.moviePoster.image = UIImage(named: "movieperson_placeholder-103642")
     }

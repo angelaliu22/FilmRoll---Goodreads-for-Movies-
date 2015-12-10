@@ -18,6 +18,7 @@ class AddListController: UITableViewController, UITextFieldDelegate {
     weak var delegate: AddListControllerDelegate?
     
     @IBOutlet weak var newListName: UITextField!
+    @IBOutlet weak var newListDefinition: UITextField!
     @IBOutlet weak var doneBarButton: UIBarButtonItem!
     
     @IBAction func cancel() {
@@ -31,6 +32,7 @@ class AddListController: UITableViewController, UITextFieldDelegate {
     var lists = [List]()
     
     override func viewDidLoad() {
+        newListName.tintColor = UIColor.blackColor()
         self.navigationController!.navigationBar.barTintColor = UIColor.orangeColor();
     }
     
@@ -41,8 +43,7 @@ class AddListController: UITableViewController, UITextFieldDelegate {
     }
     
     func addList() {
-        var list = List(listName: newListName.text, movies: [])
-        
+        var list = List(listName: newListName.text, listDescription: newListDefinition.text, movies: [])
         if listisDuplicate(list) {
             duplicateListNameAlert()
             newListName.text = ""

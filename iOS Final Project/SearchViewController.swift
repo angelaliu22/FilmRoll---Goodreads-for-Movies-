@@ -32,6 +32,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var SaveToListButton: UIButton!
     
     override func viewDidLoad() {
+        movieQuery.tintColor = UIColor.blackColor()
         self.navigationItem.hidesBackButton = true;
         super.viewDidLoad()
         resetValues()
@@ -71,7 +72,8 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
             movieNotFoundAlert()
         } else {
             self.movieTitleLabel.text = self.newMovie.title
-            if let url = self.newMovie.imgURL {
+            if self.newMovie.imgURL != nil {
+                println(newMovie.imgURL)
                 let data = NSData(contentsOfURL: self.newMovie.imgURL!)
                 self.moviePoster.image = UIImage(data: data!)
             } else {
