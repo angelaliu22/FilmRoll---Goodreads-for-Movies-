@@ -20,7 +20,7 @@ class IMDbAPI {
         let url = NSURL(string: "http://www.omdbapi.com/?t=\(queryString)")
         
         let task = NSURLSession.sharedSession().dataTaskWithURL(url!) {(data, response, error) in
-            print(NSString(data: data, encoding: NSUTF8StringEncoding))
+            (NSString(data: data, encoding: NSUTF8StringEncoding))
             self.handleMovieData(movie, data: data)
         }
         
@@ -51,7 +51,6 @@ class IMDbAPI {
             movie.director = jsonDict["Director"] as? String
             movie.actors = jsonDict["Actors"] as? String
             
-            //TODO add awards
         }
     }
 }

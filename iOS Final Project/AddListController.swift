@@ -46,6 +46,8 @@ class AddListController: UITableViewController, UITextFieldDelegate {
         if listisDuplicate(list) {
             duplicateListNameAlert()
             newListName.text = ""
+        } else if newListName.text == "" {
+            nothingEnteredAlert()
         } else {
             delegate?.addListController(self, didFinishAddingList: list)
         }
@@ -59,10 +61,17 @@ class AddListController: UITableViewController, UITextFieldDelegate {
         }
         return false
     }
-    
+    func nothingEnteredAlert() {
+        let alertController = UIAlertController(title: "Woops!", message: "No listname entered!", preferredStyle: UIAlertControllerStyle.Alert)
+        alertController.addAction(UIAlertAction(title: "Try Again", style: UIAlertActionStyle.Default,handler: nil))
+        alertController.view.tintColor = UIColor.blackColor()
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
+
     func duplicateListNameAlert() {
         let alertController = UIAlertController(title: "List Name Exists!", message: "Looks like you already have a list with this name!", preferredStyle: UIAlertControllerStyle.Alert)
         alertController.addAction(UIAlertAction(title: "Try Again", style: UIAlertActionStyle.Default,handler: nil))
+        alertController.view.tintColor = UIColor.blackColor()
         self.presentViewController(alertController, animated: true, completion: nil)
     }
     

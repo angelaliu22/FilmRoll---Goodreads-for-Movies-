@@ -19,14 +19,14 @@ class ListsTableController: UITableViewController, AddListControllerDelegate {
     func addListController(controller: AddListController, didFinishAddingList list: List) {
         
         let newRowIndex = lists.count
-        println("")
-        println("ROWS INDEX IS : " + String(lists.count))
-        println("")
+//        println("")
+//        println("ROWS INDEX IS : " + String(lists.count))
+//        println("")
         
         lists.append(list)
-        println("")
-        println("ROWS INDEX IS NOW: " + String(lists.count))
-        println("")
+//        println("")
+//        println("ROWS INDEX IS NOW: " + String(lists.count))
+//        println("")
         
         let indexPath = NSIndexPath(forRow: newRowIndex, inSection: 0)
         let indexPaths = [indexPath]
@@ -44,8 +44,8 @@ class ListsTableController: UITableViewController, AddListControllerDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
 //        self.navigationItem.leftBarButtonItem = self.editButtonItem()
-        println("ARE THERE ARE LISTS?!?!?!?!?!?!")
-        println("THERE ARE: \(self.lists.count) LISTS")
+//        println("ARE THERE ARE LISTS?!?!?!?!?!?!")
+//        println("THERE ARE: \(self.lists.count) LISTS")
         updateList()
         
     }
@@ -82,6 +82,10 @@ class ListsTableController: UITableViewController, AddListControllerDelegate {
         }
         else if segue.identifier == "showListDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow() {
+                var list = lists[indexPath.row]
+                for (var i = 0; i < list.movies!.count; i++) {
+                    println("LIST TABLE HAS LIST MOVIE AS : \(list.movies![i].title)")
+                }
                 (segue.destinationViewController as! ListDetailViewController).list = lists[indexPath.row]
             }
         } else if segue.identifier == "searchForMovie" {

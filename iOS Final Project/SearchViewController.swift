@@ -14,8 +14,6 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
     var lists = [List]()
     var newMovie = Movie()
     
-    var pickedList: String = ""
-    
     @IBOutlet weak var movieQuery: UITextField!
     @IBOutlet weak var movieTitleLabel: UILabel!
     @IBOutlet weak var moviePoster: UIImageView!
@@ -98,7 +96,6 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "getMoreRatings" {
-
             (segue.destinationViewController as! RottenTomatoesWebViewController).searchedMovieTitle = movieQuery.text
         } else if segue.identifier == "pickList" {
             if !self.lists.isEmpty || newMovie.title == "" {
@@ -122,7 +119,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
             "You have no lists to save to :(", preferredStyle: UIAlertControllerStyle.Alert)
         alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
         alertController.addAction(UIAlertAction(title: "Add A List!", style: UIAlertActionStyle.Default,handler: { action in self.performSegueWithIdentifier("addListFromSearch", sender: self) }))
-        
+        alertController.view.tintColor = UIColor.blackColor()
         self.presentViewController(alertController, animated: true, completion: nil)
     }
     
@@ -130,6 +127,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         let alertController = UIAlertController(title: "Movie Not Found!", message:
             "Oh No! We couldn't find a movie with the title \(movieQuery.text) :(", preferredStyle: UIAlertControllerStyle.Alert)
         alertController.addAction(UIAlertAction(title: "Try Again", style: UIAlertActionStyle.Default,handler: nil))
+        alertController.view.tintColor = UIColor.blackColor()
         self.presentViewController(alertController, animated: true, completion: nil)
     }
     

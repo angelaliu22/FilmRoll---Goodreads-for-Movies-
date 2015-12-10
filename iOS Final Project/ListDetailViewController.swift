@@ -24,7 +24,7 @@ class ListDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        tableView.rowHeight = 140
+        tableView.rowHeight = 100
         
         var cellNib = UINib(nibName: TableViewCellIdentifiers.listMovieCell, bundle: nil)
         tableView.registerNib(cellNib, forCellReuseIdentifier: TableViewCellIdentifiers.listMovieCell)
@@ -58,7 +58,7 @@ class ListDetailViewController: UIViewController {
         
         let action = UIAlertAction(title: NSLocalizedString("OK", comment: "Error alert: cancel button"), style: .Default, handler: nil)
         alert.addAction(action)
-        
+        alert.view.tintColor = UIColor.blackColor()
         presentViewController(alert, animated: true, completion: nil)
     }
 
@@ -96,13 +96,11 @@ extension ListDetailViewController: UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
-//        for (var i = 0; i < list!.movies!.count; i++) {
-            let cell = tableView.dequeueReusableCellWithIdentifier(TableViewCellIdentifiers.listMovieCell, forIndexPath: indexPath) as! ListMovieCell
-            let movieResult = list!.movies![indexPath.row]
-            cell.configureForMovieResult(movieResult)
-            return cell
-//        }
+        let cell = tableView.dequeueReusableCellWithIdentifier(TableViewCellIdentifiers.listMovieCell, forIndexPath: indexPath) as! ListMovieCell
+        let movieResult = list!.movies![indexPath.row]
+        println("DETAIL VIEW CONTROLLER MOVIE IS: \(movieResult.title)")
+        cell.configureForMovieResult(movieResult)
+        return cell
     }
 }
 

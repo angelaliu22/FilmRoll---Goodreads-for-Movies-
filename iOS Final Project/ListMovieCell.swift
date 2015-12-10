@@ -15,7 +15,7 @@ class ListMovieCell: UITableViewCell {
     @IBOutlet weak var moviePoster: UIImageView!
     @IBOutlet weak var movieRating: UILabel!
     @IBOutlet weak var movieYear: UILabel!
-    @IBOutlet weak var movieDescription: UILabel!
+//    @IBOutlet weak var movieDescription: UILabel!
     
   
   var downloadTask: NSURLSessionDownloadTask?
@@ -38,8 +38,11 @@ class ListMovieCell: UITableViewCell {
     movieName.text = movie.title
     
     moviePoster.image = UIImage(named: "Placeholder")
-    let data = NSData(contentsOfURL: movie.imgURL!)
-    self.moviePoster.image = UIImage(data: data!)
+    if let data = NSData(contentsOfURL: movie.imgURL!) {
+        self.moviePoster.image = UIImage(data: data)
+    } else {
+        self.moviePoster.image = UIImage(named: "movieperson_placeholder-103642")
+    }
 
     if (movie.rating == nil) {
       movieRating.text = NSLocalizedString("No Ratings Yet", comment: "No Ratings Yet")
@@ -48,7 +51,7 @@ class ListMovieCell: UITableViewCell {
     }
     
     movieYear.text = "Released: \(movie.year!)"
-    movieDescription.text = movie.plot
+//    movieDescription.text = movie.plot
     
 }
     
@@ -62,6 +65,6 @@ class ListMovieCell: UITableViewCell {
     moviePoster.image = nil
     movieRating.text = nil
     movieYear.text = nil
-    movieDescription.text = nil
+//    movieDescription.text = nil
   }
 }

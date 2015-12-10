@@ -17,14 +17,14 @@ class Movie {
     var imgURL: NSURL?
     var actors: String?
     var plot: String?
-    var awards: String?
+//    var awards: String?
     
-    var rated: String?
-    var released: String?
-    var runtime: String?
-    var genre: String?
-    var writer: String?
-    var language: String?
+//    var rated: String?
+//    var released: String?
+//    var runtime: String?
+//    var genre: String?
+//    var writer: String?
+//    var language: String?
     
     init ( ) {
             self.title = ""
@@ -33,17 +33,26 @@ class Movie {
             self.rating = ""
             self.actors = ""
             self.plot = ""
-            self.awards = ""
-            self.rated = ""
-            self.released = ""
-            self.runtime = ""
-            self.genre = ""
-            self.writer = ""
-            self.language = ""
+    }
+    
+    required init(coder aDecoder: NSCoder) {
+        self.title = (aDecoder.decodeObjectForKey("title") as? String)!
+        self.director = (aDecoder.decodeObjectForKey("director") as? String)!
+        self.year = (aDecoder.decodeObjectForKey("year") as? String)!
+        self.rating = (aDecoder.decodeObjectForKey("rating") as? String)!
+        self.actors = (aDecoder.decodeObjectForKey("actors") as? String)!
+        self.plot = (aDecoder.decodeObjectForKey("plot") as? String)!
+        self.imgURL = (aDecoder.decodeObjectForKey("plot") as? NSURL)!
+    }
+    
+    func encodeWithCoder(aCoder: NSCoder) {
+        aCoder.encodeObject(self.title, forKey: "title")
+        aCoder.encodeObject(self.director, forKey: "director")
+        aCoder.encodeObject(self.year, forKey: "year")
+        aCoder.encodeObject(self.rating, forKey: "rating")
+        aCoder.encodeObject(self.actors, forKey: "actors")
+        aCoder.encodeObject(self.plot, forKey: "plot")
+        aCoder.encodeObject(self.imgURL, forKey: "imgURL")
     }
     
 }
-
-
-
-//{"Title":"Up","Year":"2009","Rated":"PG","Released":"29 May 2009","Runtime":"96 min","Genre":"Animation, Adventure, Comedy","Director":"Pete Docter, Bob Peterson","Writer":"Pete Docter (story), Bob Peterson (story), Tom McCarthy (story), Bob Peterson (screenplay), Pete Docter (screenplay)","Actors":"Edward Asner, Christopher Plummer, Jordan Nagai, Bob Peterson","Plot":"Seventy-eight year old Carl Fredricksen travels to Paradise Falls in his home equipped with balloons, inadvertently taking a young stowaway.","Language":"English","Country":"USA","Awards":"Won 2 Oscars. Another 69 wins & 69 nominations.","Poster":"http://ia.media-imdb.com/images/M/MV5BMTk3NDE2NzI4NF5BMl5BanBnXkFtZTgwNzE1MzEyMTE@._V1_SX300.jpg","Metascore":"88","imdbRating":"8.3","imdbVotes":"600,265","imdbID":"tt1049413","Type":"movie","Response":"True"}

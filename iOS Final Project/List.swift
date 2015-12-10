@@ -25,8 +25,7 @@ class List: NSObject, NSCoding {
     }
     
     func encodeWithCoder(aCoder: NSCoder) {
-        aCoder.encodeObject(listName, forKey: "listName")
-        //TO DO WHY DOES THIS CRASH
-        aCoder.encodeObject(movies, forKey: "movies")
+        aCoder.encodeObject(self.listName, forKey: "listName")
+        aCoder.encodeObject(self.movies, forKey: "movies")
     }
 }

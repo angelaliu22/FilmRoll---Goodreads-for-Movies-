@@ -38,7 +38,9 @@ class AddListFromSearchController: UITableViewController, UITextFieldDelegate {
         let alertController = UIAlertController(title: "Movie Added!", message:
             "\(newMovie.title) has been added to the list \(newListName.text)!", preferredStyle: UIAlertControllerStyle.Alert)
         alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
+        alertController.view.tintColor = UIColor.blackColor()
         self.presentViewController(alertController, animated: true, completion: nil)
+        
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

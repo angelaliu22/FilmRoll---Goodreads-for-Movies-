@@ -59,19 +59,11 @@ class pickListModal: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "listPicked" {
             if let indexPath = self.tableView.indexPathForSelectedRow() {
-                self.pickedList = lists[indexPath.row].listName
-                (segue.destinationViewController as! SearchViewController).pickedList = self.pickedList
+                lists[indexPath.row].movies?.append(newMovie)
+                println("NEW MOVIE ADDED IS: \(newMovie.title)")
+                (segue.destinationViewController as! SearchViewController).lists = self.lists
                 println("PICKED LIST IS: \(pickedList)")
-                
             }
-            for list in self.lists {
-                if (list.listName == pickedList) {
-                    list.movies?.append(self.newMovie)
-                    println("movie added! \(newMovie.title)")
-                    println("WHAT THE LIST MOVIE COUNT SHOULD BE: \(list.movies!.count)")
-                }
-            }
-            (segue.destinationViewController as! SearchViewController).lists = self.lists
             dismissViewControllerAnimated(true, completion: nil)
         }
     }

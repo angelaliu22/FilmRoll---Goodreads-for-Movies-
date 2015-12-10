@@ -136,35 +136,26 @@
                                     <rect key="frame" x="238" y="255" width="41" height="22"/>
                                 </variation>
                             </label>
-                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eHv-E8-Amg">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <color key="backgroundColor" red="0.25351146495703492" green="0.25351146495703492" blue="0.25351146495703492" alpha="1" colorSpace="calibratedRGB"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Name Goes Here" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KGS-Fw-RVg">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="46" id="ABG-c2-hYG"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="201" id="ERQ-6y-kH9"/>
+                                    <constraint firstAttribute="width" constant="341" id="VbN-VW-guC"/>
                                 </constraints>
-                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="See reviews">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="25"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="ABG-c2-hYG"/>
-                                        <exclude reference="ERQ-6y-kH9"/>
+                                        <exclude reference="VbN-VW-guC"/>
                                     </mask>
                                 </variation>
                                 <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="0.0" y="554" width="201" height="46"/>
+                                    <rect key="frame" x="27" y="72" width="341" height="67"/>
                                     <mask key="constraints">
-                                        <include reference="ABG-c2-hYG"/>
-                                        <include reference="ERQ-6y-kH9"/>
+                                        <include reference="VbN-VW-guC"/>
                                     </mask>
                                 </variation>
-                                <connections>
-                                    <segue destination="m3A-9b-fJy" kind="push" identifier="getMoreRatings" id="u7L-9K-1ZH"/>
-                                </connections>
-                            </button>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Director" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="none" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iAz-Zg-7SZ">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <constraints>
@@ -271,26 +262,35 @@
                                     <rect key="frame" x="27" y="255" width="54" height="21"/>
                                 </variation>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Name Goes Here" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KGS-Fw-RVg">
-                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eHv-E8-Amg">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <color key="backgroundColor" red="0.25351146495703492" green="0.25351146495703492" blue="0.25351146495703492" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="341" id="VbN-VW-guC"/>
+                                    <constraint firstAttribute="height" constant="46" id="ABG-c2-hYG"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="201" id="ERQ-6y-kH9"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="25"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="See reviews">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="VbN-VW-guC"/>
+                                        <exclude reference="ABG-c2-hYG"/>
+                                        <exclude reference="ERQ-6y-kH9"/>
                                     </mask>
                                 </variation>
                                 <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="27" y="72" width="341" height="67"/>
+                                    <rect key="frame" x="0.0" y="554" width="201" height="46"/>
                                     <mask key="constraints">
-                                        <include reference="VbN-VW-guC"/>
+                                        <include reference="ABG-c2-hYG"/>
+                                        <include reference="ERQ-6y-kH9"/>
                                     </mask>
                                 </variation>
-                            </label>
+                                <connections>
+                                    <segue destination="m3A-9b-fJy" kind="push" identifier="getMoreRatings" id="u7L-9K-1ZH"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -340,7 +340,7 @@
                                 <exclude reference="K4V-JB-x9Z"/>
                                 <exclude reference="4CP-by-TBi"/>
                                 <exclude reference="fcP-cs-LH7"/>
-                                <exclude reference="eHv-E8-Amg"/>
+                                <exclude reference="KGS-Fw-RVg"/>
                                 <exclude reference="iAz-Zg-7SZ"/>
                                 <exclude reference="V51-xh-UnX"/>
                                 <exclude reference="NaX-Rf-6dP"/>
@@ -349,7 +349,7 @@
                                 <exclude reference="asp-E9-G2U"/>
                                 <exclude reference="itl-Ib-vks"/>
                                 <exclude reference="0rV-Q4-liv"/>
-                                <exclude reference="KGS-Fw-RVg"/>
+                                <exclude reference="eHv-E8-Amg"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="7bY-6k-noc"/>
@@ -399,7 +399,7 @@
                                 <include reference="K4V-JB-x9Z"/>
                                 <include reference="4CP-by-TBi"/>
                                 <include reference="fcP-cs-LH7"/>
-                                <include reference="eHv-E8-Amg"/>
+                                <include reference="KGS-Fw-RVg"/>
                                 <include reference="iAz-Zg-7SZ"/>
                                 <include reference="V51-xh-UnX"/>
                                 <include reference="NaX-Rf-6dP"/>
@@ -408,7 +408,7 @@
                                 <include reference="asp-E9-G2U"/>
                                 <include reference="itl-Ib-vks"/>
                                 <include reference="0rV-Q4-liv"/>
-                                <include reference="KGS-Fw-RVg"/>
+                                <include reference="eHv-E8-Amg"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="7bY-6k-noc"/>
@@ -532,6 +532,7 @@
                             <outlet property="delegate" destination="e4m-8B-d5o" id="xIl-xJ-3l4"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="Rmo-i6-H6X"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1uj-MZ-Fq7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -758,6 +759,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="eGg-BM-bXy"/>
-        <segue reference="thN-9v-ZeW"/>
+        <segue reference="XlE-fD-2mo"/>
     </inferredMetricsTieBreakers>
 </document>
